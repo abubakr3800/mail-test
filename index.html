@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="emailForm" method="post">
+        <button type="submit">Send Email</button>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+        <script>
+        // emailjs.init("fTxdrSBvSBNyProkoUew_");
+        document.getElementById('emailForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            Email.send({
+                Host : "smtp.mailendo.com",
+                Username : "ttkiouty@gmail.com",
+                Password : "xybpkjdsysnuswbr",
+                To : 'ahhmedabubakr1482@gmail.com',
+                From : "almeldingroub@gmail.com",
+                Subject : "This is the subject",
+                Body : "And this is the body"
+            }).then(
+            message => alert(message)
+            );
+        })
+    </script>    
+</body>
+</html>

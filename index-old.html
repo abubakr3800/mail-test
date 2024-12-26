@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myform" action="send.php" method="POST" onchange="this.usertoken.value= Math.round(Math.random() * 100000)">
+        <input type="text" name="name">
+        <input type="number" name="usertoken" hidden >
+        <button type="submit">send</button>
+    </form>
+    <script>
+        document.getElementById("myform").addEventListener("submit", function(event) {
+            event.preventDefault();
+            // (B1) GET FORM DATA
+            var data = new FormData(document.getElementById("myform"));
+        
+            // (B2) AJAX CALL
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "send.php");
+            xhr.onload = function () {
+                console.log(this.response);
+            };
+            xhr.send(data);        
+        })
+    </script>
+</body>
+</html>
